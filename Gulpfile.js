@@ -8,7 +8,7 @@ var gulp    = require('gulp'),
     client  = require('tiny-lr')(),
     list    = require('gulp-task-listing'),
     nodemon = require('gulp-nodemon'),
-    lr_port = 35729,
+    lr_port = 35728,
     stylus   = require('gulp-stylus');
 
 
