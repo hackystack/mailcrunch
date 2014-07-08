@@ -1,19 +1,15 @@
-<div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span2">
-      <!--Sidebar content-->
-       <h2>The Conveyor Belt</h2>
-       <table class='table-bordered' ng-controller="NoteController" ng-grid>
-          <tr><th>From </th><th>Subject </th></tr>
-          <tr ng-repeat="email in inbox"><td>{{email.from}} </td><td> {{email.subject}}</td></tr>
-          </li>
-       </table>
-    </div>
-    <div class="span10">
-      <!--Body content-->
+
+<div class="container">
+  <div class='row'><br></div>
+  <div class='row'><br></div>
+  <div class='row'><br></div>
+  <div class="row">
+    <div class="col-md-9 col-md-push-3">
+
+      <!--Body content inside span10-->
       
       <a ng-click='sortManage()'><img src="../images/manage.jpg"></a><a ng-click='sortFocus()'><img src="../images/focus.jpg"></a><br><a ng-click='sortAvoid()'><img src="../images/avoid.jpg"></a><a ng-click='sortLimit()'><img src="../images/limit.jpg"></a>
-      <a ng-controller='timeLeft'>Time left: {{ timeLeft }} seconds.</a>
+      <span ng-controller='timeLeft' class='well'>Time left: {{ timeLeft }} seconds</span>
 
       <h3>Sort This Email: </h3>
       <table class='table-bordered' ng-controller="NoteController" ng-grid>
@@ -23,6 +19,16 @@
         <tr><td> Subject: </td><td> {{currentEmail.subject}}</td></tr>
         <tr><td> Body: </td><td> {{currentEmail.body}}</td></tr>
       </table>
+    
+    </div>
+
+    <div class="col-md-3 col-md-pull-9 well">
+      
+      <!--Sidebar content inside span2-->
+       <h3 >Conveyor Belt</h3>
+       <span ng-controller="NoteController">
+          <li class="list-group-item" ng-repeat="email in inbox"><td>{{email.from}}: </td><td> "{{email.subject}}</td></li>
+       </span>     
     </div>
   </div>
-  </div>
+</div>

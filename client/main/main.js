@@ -13,6 +13,5 @@
     $state.transitionTo('myApp.main.home');
   })
 
-
 }(angular));
   
