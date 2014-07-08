@@ -1,16 +1,29 @@
 
-<div class="container">
-  <div class='row'><br></div>
-  <div class='row'><br></div>
-  <div class='row'><br></div>
-  <div class="row">
-    <div class="col-md-9 col-md-push-3">
-
-      <!--Body content inside span10-->
-      
-      <a ng-click='sortManage()'><img src="../images/manage.jpg"></a><a ng-click='sortFocus()'><img src="../images/focus.jpg"></a><br><a ng-click='sortAvoid()'><img src="../images/avoid.jpg"></a><a ng-click='sortLimit()'><img src="../images/limit.jpg"></a>
+<div class="container-fixed">
+  <div class='row-fixed'><br><br><br><br></div>
+  <div class='row'>
+    <br>
+    <div class='col-md-3'>
       <span ng-controller='timeLeft' class='well'>Time left: {{ timeLeft }} seconds</span>
+    </div>
 
+    <div class='col-md-4'>
+      <a ng-click='sortManage()'><img src="../images/manage.jpg"></a><a ng-click='sortFocus()'><img src="../images/focus.jpg"></a><br><a ng-click='sortAvoid()'><img src="../images/avoid.jpg"></a><a ng-click='sortLimit()'><img src="../images/limit.jpg"></a>
+    </div>
+
+    <div class="col-md-4 pull-right">
+      
+      <!--Sidebar content inside span2-->
+       <h3 >Conveyor Belt</h3>
+       <span ng-controller="NoteController">
+          <li class="list-group-item" ng-repeat="email in inbox"><td>{{email.from}}: </td><td> "{{email.subject}}</td></li>
+       </span>
+    </div>
+  </div>
+
+
+  <span class='row'>
+    <div class='col-md-8 well'>
       <h3>Sort This Email: </h3>
       <table class='table-bordered' ng-controller="NoteController" ng-grid>
         <tr><td> Received: </td><td> {{currentEmail.time}}</td></tr>
@@ -19,16 +32,7 @@
         <tr><td> Subject: </td><td> {{currentEmail.subject}}</td></tr>
         <tr><td> Body: </td><td> {{currentEmail.body}}</td></tr>
       </table>
-    
     </div>
-
-    <div class="col-md-3 col-md-pull-9 well">
-      
-      <!--Sidebar content inside span2-->
-       <h3 >Conveyor Belt</h3>
-       <span ng-controller="NoteController">
-          <li class="list-group-item" ng-repeat="email in inbox"><td>{{email.from}}: </td><td> "{{email.subject}}</td></li>
-       </span>     
-    </div>
+   </div>
   </div>
 </div>
