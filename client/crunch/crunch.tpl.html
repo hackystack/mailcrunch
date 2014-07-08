@@ -4,7 +4,7 @@
   <a ng-controller='timeLeft'>Time left: {{ timeLeft }} seconds.</a>
 
  <h3>Sort This Email: </h3>
- <table class='table-bordered' ng-controller="NoteController" ng-grid>
+ <table class='table-bordered' ng-controller="crunchController" ng-grid>
   	<tr><td> Received: </td><td> {{currentEmail.time}}</td></tr>
   	<tr><td> To: </td><td> {{currentEmail.to}}</td></tr> 
   	<tr><td> From: </td><td> {{currentEmail.from}}</td></tr>
@@ -16,7 +16,7 @@
   <br>
 
  <h2>Upcoming</h2>
- <table class='table-bordered' ng-controller="NoteController" ng-grid>
+ <table class='table-bordered' ng-controller="crunchController" ng-grid>
     <tr><th>From </th><th>Subject </th></tr>
   	<tr ng-repeat="email in inbox"><td>{{email.from}} </td><td> {{email.subject}}</td></tr>
     </li>

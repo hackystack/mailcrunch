@@ -1,17 +1,17 @@
-angular.module('myApp.main.note', ['ui.router'])
+angular.module('myApp.main.crunch', ['ui.router'])
 
 .config(function ($stateProvider) {
 
   $stateProvider
-    .state('myApp.main.note', {
-      url: '/notes',
-      templateUrl: 'note/note.tpl.html',
-      controller: 'NoteController'
+    .state('myApp.main.crunch', {
+      url: '/crunch',
+      templateUrl: 'crunch/crunch.tpl.html',
+      controller: 'crunchController'
     });
 })
 
 //this is dummy data to test the list of inbox emails	
-.controller('NoteController', function($scope) {
+.controller('crunchController', function($scope) {
 	$scope.inbox =[
 	  {from: 'Oscar',
 	  to: 'Liam',
