@@ -5,7 +5,7 @@
     'ngAnimate',
     'fx.animations'
  ,'myApp.main'])
-  .config(function ($stateProvider) {
+  .config(function($stateProvider) {
     $stateProvider
       .state('myApp', {
         abstract: true,
