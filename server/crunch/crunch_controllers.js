@@ -1,14 +1,14 @@
 "use strict";
 
-var Crunch = require('./note_model.js'),
+var Crunch = require('./crunch_model.js'),
     Q    = require('q');
 
 module.exports = exports = {
   get: function (req, res, next) {
-    var $promise = Q.nbind(crunch.find, crunch);
+    var $promise = Q.nbind(Crunch.find, Crunch);
     $promise()
-      .then(function (notes) {
-        res.json(notes);
+      .then(function (crunch) {
+        res.json(crunch);
       })
        .fail(function (reason) {
         next(reason);
@@ -17,7 +17,7 @@ module.exports = exports = {
 
   post: function (req, res, next) {
     var crunch = req.body.crunch;
-    var $promise = Q.nbind(crunch.create, crunch);
+    var $promise = Q.nbind(Crunch.create, Crunch);
     $promise(crunch)
       .then(function (id) {
         res.send(id);
