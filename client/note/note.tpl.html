@@ -3,29 +3,30 @@
   <div class='row-fixed'><br><br><br><br></div>
   <div class='row'>
     <br>
-    <div class='col-md-3'>
-      <span ng-controller='timeLeft' class='well'>Time left: {{ timeLeft }} seconds</span>
-    </div>
+      <div class='col-md-3'>
+        <span ng-controller='timeLeft' class='well'>Time left: {{ timeLeft }} seconds</span>
+      </div>
 
     <div class='col-md-4'>
       <a ng-click='sortManage()'><img src="../images/manage.jpg"></a><a ng-click='sortFocus()'><img src="../images/focus.jpg"></a><br><a ng-click='sortAvoid()'><img src="../images/avoid.jpg"></a><a ng-click='sortLimit()'><img src="../images/limit.jpg"></a>
     </div>
-
+  </div>
+  <div class="container-fixed">>
     <div class="col-md-4 pull-right">
       
       <!--Sidebar content inside span2-->
-       <h3 >Conveyor Belt</h3>
+       <h4 >The queue</h4>
        <span ng-controller="NoteController">
-          <li class="list-group-item" ng-repeat="email in inbox"><td>{{email.from}}: </td><td> "{{email.subject}}</td></li>
+          <li class="list-group-item" ng-repeat="email in inbox">{{email.from}}: {{email.subject}} @ {{email.time}}</li>
        </span>
     </div>
   </div>
-
+  <div class="container-fixed">
 
   <span class='row'>
     <div class='col-md-8 well'>
       <h3>Sort This Email: </h3>
-      <table class='table-bordered' ng-controller="NoteController" ng-grid>
+      <table class='table-bordered' ng-controller="NoteController">
         <tr><td> Received: </td><td> {{currentEmail.time}}</td></tr>
         <tr><td> To: </td><td> {{currentEmail.to}}</td></tr> 
         <tr><td> From: </td><td> {{currentEmail.from}}</td></tr>

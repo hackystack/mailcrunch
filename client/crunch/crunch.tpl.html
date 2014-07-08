@@ -1,37 +1,42 @@
-<div class="container-fluid">
-  <br><br><br>
-  
+<div class='row'>
+<div class="container-fluid, col-md-8">
   <div class='col-md-3'>
-      <span ng-controller='timeLeft' class='well'>Time left: {{ timeLeft }} seconds</span>
-  </div>
-  
-  <div class='col-md-4'>
-    <a ng-show='currentEmail.manage'><img src="../images/manage.jpg"></a><a ng-show='currentEmail.focus'><img src="../images/focus.jpg"></a><br><a ng-show='currentEmail.avoid'><img src="../images/avoid.jpg"></a><a ng-show='currentEmail.limit'><img src="../images/limit.jpg"></a>
+      <span ng-controller='crunchTimeLeft' class='well'>Time left: {{ timeLeft }} seconds</span>
   </div>
 
- <h3>Read This Email: </h3>
- <table class='table-bordered' ng-controller="CrunchController" ng-grid>
-  	<tr><td> Received: </td><td> {{currentEmail.time}}</td></tr>
-  	<tr><td> To: </td><td> {{currentEmail.to}}</td></tr> 
-  	<tr><td> From: </td><td> {{currentEmail.from}}</td></tr>
-  	<tr><td> Subject: </td><td> {{currentEmail.subject}}</td></tr>
-  	<tr><td> Body: </td><td> {{currentEmail.body}}</td></tr>
-    </li>
- </table>
+  <div>
+     <h4>Email recieved: </h4>
+     <table class='table-bordered' ng-controller="CrunchController">
+        <tr><td> Received: </td><td> {{currentEmail.time}}</td></tr>
+        <tr><td> To: </td><td> {{currentEmail.to}}</td></tr> 
+        <tr><td> From: </td><td> {{currentEmail.from}}</td></tr>
+        <tr><td> Subject: </td><td> {{currentEmail.subject}}</td></tr>
+        <tr><td> Body: </td><td> {{currentEmail.body}}</td></tr>
+        </li>
+     </table>
 
- <div class="input-group">
-   <span class="input-group-addon">@</span>
-   <input type="text" class="form-control" placeholder="To">
-   <input type="text" class="form-control" placeholder="Subject">
-   <input type="text" class="form-control" placeholder="Write a message">
- </div>
+     <div class="input-group, col-md-8">
+       <span class="input-group-addon">Response</span>
+       <input type="text" class="form-control" placeholder="To">
+       <input type="text" class="form-control" placeholder="Subject">
+       <input type="text" class="form-control" placeholder="Write a message">
+       <button ng-click class="btn btn-primary btn-lg" role="button">Send</button>
+     </div>
 
-  <br>
- 
- <h2>The Conveyor Belt</h2>
- <table class='table-bordered' ng-controller="CrunchController" ng-grid>
-    <tr><th>From </th><th>Subject </th></tr>
-  	<tr ng-repeat="email in inbox"><td>{{email.from}} </td><td> {{email.subject}}</td></tr>
-    </li>
- </table>
+    <div class='col-md-4'>
+      <a ng-show='currentEmail.manage'><img src="../images/manage.jpg"></a><a ng-show='currentEmail.focus'><img src="../images/focus.jpg"></a><br><a ng-show='currentEmail.avoid'><img src="../images/avoid.jpg"></a><a ng-show='currentEmail.limit'><img src="../images/limit.jpg"></a>
+    </div>
+  </div>
+
+
+  <div class="container-fluid, col-md-4, pull-right">
+   <div>   
+      <!--Sidebar content inside span2-->
+       <h4 class='well'>The queue</h4>
+       <span ng-controller="CrunchController">
+          <li class="list-group-item" ng-repeat="email in inbox">{{email.from}}: {{email.subject}} @{{email.time}}</li>
+       </span>
+    </div>
+  </div>
+</div>
 </div>
