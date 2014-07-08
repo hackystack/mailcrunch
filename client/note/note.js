@@ -4,7 +4,7 @@ angular.module('myApp.main.note', ['ui.router'])
 
   $stateProvider
     .state('myApp.main.note', {
-      url: '/notes',
+      url: '/sort',
       templateUrl: 'note/note.tpl.html',
       controller: 'NoteController'
     });

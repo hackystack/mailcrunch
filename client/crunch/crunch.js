@@ -1,17 +1,17 @@
 angular.module('myApp.main.crunch', ['ui.router'])
 
-.config(function ($stateProvider) {
+.config(function($stateProvider) {
 
   $stateProvider
     .state('myApp.main.crunch', {
       url: '/crunch',
       templateUrl: 'crunch/crunch.tpl.html',
-      controller: 'crunchController'
+      controller: 'CrunchController'
     });
 })
 
 //this is dummy data to test the list of inbox emails	
-.controller('crunchController', function($scope) {
+.controller('CrunchController', function($scope) {
 	$scope.inbox =[
 	  {from: 'Oscar',
 	  to: 'Liam',
@@ -36,8 +36,8 @@ angular.module('myApp.main.crunch', ['ui.router'])
 	$scope.currentEmail = $scope.inbox[emailIndex]
 })
 
-//this controller decrements the timeLeft variable once per second
-//TODO: add in a function that switches emails when timeLeft = 0;
+// this controller decrements the timeLeft variable once per second
+// TODO: add in a function that switches emails when timeLeft = 0;
 .controller('timeLeft',function($scope){
   $scope.timeLeft = 5;
   setInterval(1000, function(){

@@ -1,10 +1,10 @@
 <div class="container-fluid">
   <br><br><br>
-  <a ng-click='sortManage()'><img src="../images/manage.jpg"></a><a ng-click='sortFocus()'><img src="../images/focus.jpg"></a><br><a ng-click='sortAvoid()'><img src="../images/avoid.jpg"></a><a ng-click='sortLimit()'><img src="../images/limit.jpg"></a>
+  <a ng-show='currentEmail.manage'><img src="../images/manage.jpg"></a><a ng-show='currentEmail.focus'><img src="../images/focus.jpg"></a><br><a ng-show='currentEmail.avoid'><img src="../images/avoid.jpg"></a><a ng-show='currentEmail.limit'><img src="../images/limit.jpg"></a>
   <a ng-controller='timeLeft'>Time left: {{ timeLeft }} seconds.</a>
 
- <h3>Sort This Email: </h3>
- <table class='table-bordered' ng-controller="crunchController" ng-grid>
+ <h3>Read This Email: </h3>
+ <table class='table-bordered' ng-controller="CrunchController" ng-grid>
   	<tr><td> Received: </td><td> {{currentEmail.time}}</td></tr>
   	<tr><td> To: </td><td> {{currentEmail.to}}</td></tr> 
   	<tr><td> From: </td><td> {{currentEmail.from}}</td></tr>
@@ -15,8 +15,8 @@
 
   <br>
 
- <h2>Upcoming</h2>
- <table class='table-bordered' ng-controller="crunchController" ng-grid>
+ <h2>The Conveyor Belt</h2>
+ <table class='table-bordered' ng-controller="CrunchController" ng-grid>
     <tr><th>From </th><th>Subject </th></tr>
   	<tr ng-repeat="email in inbox"><td>{{email.from}} </td><td> {{email.subject}}</td></tr>
     </li>
