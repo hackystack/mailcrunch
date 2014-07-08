@@ -1,7 +1,13 @@
 <div class="container-fluid">
   <br><br><br>
-  <a ng-show='currentEmail.manage'><img src="../images/manage.jpg"></a><a ng-show='currentEmail.focus'><img src="../images/focus.jpg"></a><br><a ng-show='currentEmail.avoid'><img src="../images/avoid.jpg"></a><a ng-show='currentEmail.limit'><img src="../images/limit.jpg"></a>
-  <a ng-controller='timeLeft'>Time left: {{ timeLeft }} seconds.</a>
+  
+  <div class='col-md-3'>
+      <span ng-controller='timeLeft' class='well'>Time left: {{ timeLeft }} seconds</span>
+  </div>
+  
+  <div class='col-md-4'>
+    <a ng-show='currentEmail.manage'><img src="../images/manage.jpg"></a><a ng-show='currentEmail.focus'><img src="../images/focus.jpg"></a><br><a ng-show='currentEmail.avoid'><img src="../images/avoid.jpg"></a><a ng-show='currentEmail.limit'><img src="../images/limit.jpg"></a>
+  </div>
 
  <h3>Read This Email: </h3>
  <table class='table-bordered' ng-controller="CrunchController" ng-grid>
@@ -13,8 +19,15 @@
     </li>
  </table>
 
-  <br>
+ <div class="input-group">
+   <span class="input-group-addon">@</span>
+   <input type="text" class="form-control" placeholder="To">
+   <input type="text" class="form-control" placeholder="Subject">
+   <input type="text" class="form-control" placeholder="Write a message">
+ </div>
 
+  <br>
+ 
  <h2>The Conveyor Belt</h2>
  <table class='table-bordered' ng-controller="CrunchController" ng-grid>
     <tr><th>From </th><th>Subject </th></tr>
