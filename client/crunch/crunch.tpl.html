@@ -1,12 +1,12 @@
-<div class='row'>
-<div class="container-fluid, col-md-8">
-  <div class='col-md-3'>
-      <span ng-controller='crunchTimeLeft' class='well'>Time left: {{ timeLeft }} seconds</span>
-  </div>
-
+<br><br><br><br>
+<div class="container-fixed, col-md-8">
   <div>
-     <h4>Email recieved: </h4>
-     <table class='table-bordered' ng-controller="CrunchController">
+      <span ng-controller='crunchTimeLeft' class='well'>We suggest you use {{ timeLeft }} seconds to deal with this email.</span>
+  </div>
+  <br>
+  <div>
+     <h4 class='well'>Email recieved: </h4>
+     <table class='table' ng-controller="CrunchController">
         <tr><td> Received: </td><td> {{currentEmail.time}}</td></tr>
         <tr><td> To: </td><td> {{currentEmail.to}}</td></tr> 
         <tr><td> From: </td><td> {{currentEmail.from}}</td></tr>
@@ -14,29 +14,29 @@
         <tr><td> Body: </td><td> {{currentEmail.body}}</td></tr>
         </li>
      </table>
-
-     <div class="input-group, col-md-8">
+  <br>
+  <div class="input-group" ng-controller='ResponseController'>
        <span class="input-group-addon">Response</span>
        <input type="text" class="form-control" placeholder="To">
        <input type="text" class="form-control" placeholder="Subject">
        <input type="text" class="form-control" placeholder="Write a message">
-       <button ng-click class="btn btn-primary btn-lg" role="button">Send</button>
+       <button ng-click='send()' class="btn btn-primary btn-lg" role="button">Send</button><button ng-click='next()' class="btn btn-primary btn-lg" role="button">Next</button>
      </div>
 
-    <div class='col-md-4'>
+    <!-- <div class='col-md-4'>
       <a ng-show='currentEmail.manage'><img src="../images/manage.jpg"></a><a ng-show='currentEmail.focus'><img src="../images/focus.jpg"></a><br><a ng-show='currentEmail.avoid'><img src="../images/avoid.jpg"></a><a ng-show='currentEmail.limit'><img src="../images/limit.jpg"></a>
-    </div>
+    </div> -->
   </div>
-
+</div>
 
   <div class="container-fluid, col-md-4, pull-right">
    <div>   
       <!--Sidebar content inside span2-->
        <h4 class='well'>The queue</h4>
        <span ng-controller="CrunchController">
-          <li class="list-group-item" ng-repeat="email in inbox">{{email.from}}: {{email.subject}} @{{email.time}}</li>
+          <li class="list-group-item disabled" ng-repeat="email in inbox | filter: {status: 'responded'}">{{email.from}}: {{email.subject}} @ {{email.time}}</li>
+          <li class="list-group-item" ng-repeat="email in inbox | filter: {status: 'pending'}">{{email.from}}: {{email.subject}} @ {{email.time}}</li>
        </span>
     </div>
-  </div>
 </div>
 </div>
