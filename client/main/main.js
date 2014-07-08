@@ -12,6 +12,5 @@
   .controller('MainController', function($state) {
     $state.transitionTo('myApp.main.home');
   })
-
 }(angular));
   
