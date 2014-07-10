@@ -4,6 +4,7 @@
   "dependencies": {
     "express": "*",
     "express-session": "^1.6.4",
+    "imap": "^0.8.12",
     "mongoose": "*",
     "passport": "^0.2.0",
     "passport-local": "^1.0.0",

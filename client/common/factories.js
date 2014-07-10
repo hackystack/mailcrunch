@@ -94,6 +94,19 @@
 	    }else if (bucket === 'limit'){
           return timeLeft = 60;
 	    }
-	 });
+	 })
+
+  .factory('GetEmails', function($http){
+  	var getEmails = function(username, password){
+  		return $http({
+  			method: 'POST',
+  			url: 'main/home',
+  			data: {username: username, password: password}
+  		})
+  		.then(function(response){
+  			return response;
+  		});
+  	}
+  })
 }(angular));
 
