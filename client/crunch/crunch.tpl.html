@@ -2,10 +2,12 @@
 <div class="container-fixed, col-md-8">
   <div>
       <span ng-controller='crunchTimeLeft' class='well'>We suggest you use {{ timeLeft }} seconds to deal with this email.</span>
+      <br><br><br>
+      <blockquote ng-controller='mantra'>Mantra: {{ message }}</blockquote>
   </div>
   <br>
   <div>
-     <h4 class='well'>Email recieved: </h4>
+     <h4 class='well'>Respond to this email. Timer is above. Go. </h4>
      <table class='table' ng-controller="CrunchController">
         <tr><td> Received: </td><td> {{currentEmail.time}}</td></tr>
         <tr><td> To: </td><td> {{currentEmail.to}}</td></tr> 
@@ -35,7 +37,7 @@
        <h4 class='well'>The queue</h4>
        <span ng-controller="CrunchController">
           <li class="list-group-item disabled" ng-repeat="email in inbox | filter: {status: 'responded'}">{{email.from}}: {{email.subject}} @ {{email.time}}</li>
-          <li class="list-group-item" ng-repeat="email in inbox | filter: {status: 'pending'}">{{email.from}}: {{email.subject}} @ {{email.time}}</li>
+          <li class="list-group-item" ng-repeat="email in inbox | filter: {status: 'sorted'}">{{email.from}}: {{email.subject}} @ {{email.time}}</li>
        </span>
     </div>
 </div>

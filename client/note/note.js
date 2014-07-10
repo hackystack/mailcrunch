@@ -11,42 +11,41 @@ angular.module('myApp.main.note', ['ui.router'])
 })
 
 //this is dummy data to test the list of inbox emails	
-.controller('NoteController', function($scope, Inbox, sortTimer) {
+.controller('NoteController', function($scope, Inbox, $rootScope) {
     
     $scope.inbox = Inbox.Inbox;
 
     $scope.emailIndex = 0;
     $scope.currentEmail = $scope.inbox[$scope.emailIndex]
-    Inbox.timeLeft = 5;
-    
+    $rootScope.timeLeft = 5;
 
     $scope.sortManage = function(){
       $scope.inbox[$scope.emailIndex]['bucket'] = 'manage';
       $scope.inbox[$scope.emailIndex]['status'] = 'sorted';
       $scope.emailIndex++;
       $scope.currentEmail = $scope.inbox[$scope.emailIndex]
-      Inbox.timeLeft = 5;
+      $rootScope.timeLeft = 6;
     };
     $scope.sortFocus = function(){
       $scope.inbox[$scope.emailIndex]['bucket'] = 'focus';
       $scope.inbox[$scope.emailIndex]['status'] = 'sorted';
       $scope.emailIndex++;
       $scope.currentEmail = $scope.inbox[$scope.emailIndex]
-      Inbox.timeLeft = 5;
+      $rootScope.timeLeft = 6;
     };
     $scope.sortAvoid = function(){
       $scope.inbox[$scope.emailIndex].bucket = 'avoid';
       $scope.inbox[$scope.emailIndex]['status'] = 'sorted';
       $scope.emailIndex++;
       $scope.currentEmail = $scope.inbox[$scope.emailIndex]
-      Inbox.timeLeft = 5;
+      $rootScope.timeLeft = 6;
     };
     $scope.sortLimit = function(){
       $scope.inbox[$scope.emailIndex]['bucket'] = 'avoid';
       $scope.inbox[$scope.emailIndex]['status'] = 'sorted';
       $scope.emailIndex++;
       $scope.currentEmail = $scope.inbox[$scope.emailIndex]
-      Inbox.timeLeft = 5;
+      $rootScope.timeLeft = 6;
     };
 
 })
@@ -57,11 +56,11 @@ angular.module('myApp.main.note', ['ui.router'])
 
 //this controller decrements the timeLeft variable once per second
 //TODO: add in a function that switches emails when timeLeft = 0;
-.controller('timeLeft',function($scope,$interval, Inbox, sortTimer){
-  $scope.timeLeft = Inbox.timeLeft;
-
-
+.controller('timeLeft',function($scope,$interval, Inbox, $rootScope){
   $interval(function(){
-  	  $scope.timeLeft--;
+    if($rootScope.timeLeft > 0){
+  	  $rootScope.timeLeft--;
+      $scope.timeLeft = $rootScope.timeLeft;
+    }
   },1000);
 })

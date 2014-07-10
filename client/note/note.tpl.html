@@ -15,7 +15,7 @@
 <div class="container-fixed">
 <!--   <span class='row'> -->
     <div class='col-md-8'>
-      <h3 class='well'>Received email </h3>
+      <h3 class='well'>Sort this email. You've got 5 sec. Go. </h3>
       <table class='table' ng-controller="EmailController">
         <tr><td> Received: </td><td> {{currentEmail.time}}</td></tr>
         <tr><td> To: </td><td> {{currentEmail.to}}</td></tr> 
@@ -31,7 +31,7 @@
 <!--   <div class='row'> -->
     <br>
       <div class='col-md-4'>
-        <span ng-controller='timeLeft' class='well'>We suggest you sort this email in{{ timeLeft }} seconds</span>
+        <span ng-controller='timeLeft' class='well'>We suggest you sort this email in {{ timeLeft }} seconds</span>
       </div>
 
     <div class='col-md-4 well'>
