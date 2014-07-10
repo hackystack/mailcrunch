@@ -28,5 +28,6 @@ module.exports = exports = {
     } else {
       return next();
     }
+    // I think the passport authentication needs to go here
   }
 };
