@@ -1,0 +1,42 @@
+<div class='row-fixed'><br><br><br><br></div>
+
+<div class="container-fixed"> 
+    <div class="col-md-4 pull-right">
+      
+      <!--Sidebar content inside span2-->
+       <div class='well'><h4>The queue </h4><p>What's on the docket for this crunch session</p></div>
+       <span ng-controller="SortController">
+          <li class="list-group-item disabled" ng-repeat="email in inbox | filter: {status: 'sorted'}">{{email.from}}: {{email.subject}} @ {{email.time}}</li>
+          <li class="list-group-item" ng-repeat="email in inbox | filter: {status: 'pending'}">{{email.from}}: {{email.subject}} @ {{email.time}}</li>
+       </span>
+    </div>
+</div>
+
+<div class="container-fixed">
+<!--   <span class='row'> -->
+    <div class='col-md-8'>
+      <h3 class='well'>Sort this email. You've got 5 sec. Go. </h3>
+      <table class='table' ng-controller="EmailController">
+        <tr><td> Received: </td><td> {{currentEmail.time}}</td></tr>
+        <tr><td> To: </td><td> {{currentEmail.to}}</td></tr> 
+        <tr><td> From: </td><td> {{currentEmail.from}}</td></tr>
+        <tr><td> Subject: </td><td> {{currentEmail.subject}}</td></tr>
+        <tr><td> Body: </td><td> {{currentEmail.body}}</td></tr>
+      </table>
+    </div>
+ <!--  </span>-->
+</div>
+<br>
+<div class="container-fixed">
+<!--   <div class='row'> -->
+    <br>
+      <div class='col-md-4'>
+        <span ng-controller='timeLeft' class='well'>We suggest you sort this email in {{ timeLeft }} seconds</span>
+      </div>
+
+    <div class='col-md-4 well'>
+    <span><h3>Choose a category:</h3><p>Rank this email by urgency & importance</p></span>
+      <a ng-click='sortManage()'><img src="../images/manage.jpg"></a><a ng-click='sortFocus()'><img src="../images/focus.jpg"></a><br><a ng-click='sortAvoid()'><img src="../images/avoid.jpg"></a><a ng-click='sortLimit()'><img src="../images/limit.jpg"></a>
+    </div>
+<!--   </div> -->
+</div>

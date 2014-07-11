@@ -3,14 +3,14 @@
 var express = require('express');
 var app = express();
 var routers = {};
-var NoteRouter = express.Router();
+var SortRouter = express.Router();
 var CrunchRouter = express.Router();
-routers.NoteRouter = NoteRouter;
+routers.SortRouter = SortRouter;
 routers.CrunchRouter = CrunchRouter;
 
 require('./config.js')(app, express, routers);
 
-require('../note/note_routes.js')(NoteRouter);
+require('../sort/sort_routes.js')(SortRouter);
 
 require('../crunch/crunch_routes.js')(CrunchRouter);
 

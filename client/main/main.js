@@ -1,6 +1,6 @@
 (function (angular) {
   "use strict";
-  angular.module('myApp.main', ['ui.router', 'myApp.main.crunch', 'myApp.main.note', 'myApp.main.home', 'myApp.main.signup', 'myApp.main.login'])
+  angular.module('myApp.main', ['ui.router', 'myApp.main.crunch', 'myApp.main.sort', 'myApp.main.home', 'myApp.main.signup', 'myApp.main.login'])
   .config(function ($stateProvider){
     $stateProvider
       .state('myApp.main', {
