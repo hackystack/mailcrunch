@@ -10,7 +10,12 @@ angular.module('myApp.main.login', ['ui.router'])
     });
 })
 
-.controller('LoginController', function($scope) {
-    
+.controller('LoginController', function($scope, GetEmails) {
+    $scope.getEmails = function(){
+    	GetEmails.getEmails()
+    	  .then(function(response){
+    	  	console.log(response);
+    	  });
+    }
 });
 
