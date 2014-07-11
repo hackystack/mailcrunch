@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <br> <br> <br> <br> <br>
+  <div id='login'>
+  <h1>Login</h1>
+  <form name="loginForm" ng-submit='login()' novalidate>
+    <input name="username" type='text' ng-model='user.username' ng-minlength="3" ng-maxlength="10" required>
+    <input name="password" type="password" ng-model='user.password' ng-minlength="3" ng-maxlength="10" required>
+    <button ng-disabled="loginForm.$invalid">login</button>
+    <div>{{ error }}</div>
+  </form>
+  <a href="#/main/signup">Don't have an account? Signup ...</a>
+</div>
+</div>
