@@ -24,43 +24,37 @@ module.exports = exports = {
         imap.openBox('INBOX', true, cb);
       }
 
+
+      var headers;
+      var message;
       imap.once('ready', function() {
         openInbox(function(err, box) {
           if (err) throw err;
-          imap.search([ 'UNSEEN', '1:50' ], function(err, results){
+          imap.search([ 'UNSEEN', ['SINCE', 'July 09, 2014'] ], function(err, results){
             if (err) throw err;
-               var fetched = imap.fetch(results, { bodies: '' });
-               fetched.on('message', function(msg, seqno) {
-                 // console.log('Message #%d', seqno);
-                 var prefix = '(#' + seqno + ') ';
-                 msg.on('body', function(stream, info) {
-                   // console.log(prefix + 'Body');
-                   stream.pipe(fs.createWriteStream('msg-' + seqno + '-body.txt'));
-                   var data = ''
-                   stream.on('data', function(chunk){
-                     data += chunk;
-                   });
-                   stream.on('end', function(){
-                    console.log(data.toString('utf8'));
-                   })
-                 });
-                 msg.once('attributes', function(attrs) {
-                   // console.log(prefix + 'Attributes: %s', inspect(attrs, false, 8));
-                 });
-                 msg.once('end', function() {
-                   // console.log(prefix + 'Finished');
-                 });
+             var fetched = imap.fetch(results, { struct: true, bodies: '' });
+             fetched.on('message', function(msg, seqno) {
+               msg.on('body', function(stream, info) {
+                var buffer = '';
+                stream.on('data', function(data){
+                  buffer += data.toString('utf8');
+                })
+                stream.on('end', function(){
+                  console.log(buffer);
+                  headers = Imap.parseHeader(buffer);
+                })
+               })
+               msg.on('attributes', function(attrs){
+                 message = JSON.stringify(attrs.struct);
                });
-               fetched.once('error', function(err) {
-                 // console.log('Fetch error: ' + err);
+               msg.on('end', function(){
+                res.end(JSON.stringify({headers: JSON.stringify(headers), message: message}));
                });
-               fetched.once('end', function() {
-                 // console.log('Done fetching all messages!');
-                 imap.end();
             });
           });
         });
       });
+      
 
       imap.once('error', function(err) {
         console.log(err);

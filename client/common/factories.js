@@ -101,6 +101,10 @@
   		return $http({
   			method: 'GET',
   			url: '/main/login'
+  		})
+  		.then(function(response){
+
+  			console.log(JSON.parse(response.data.headers));
   		});
   	};
   	return {

@@ -12,7 +12,6 @@ angular.module('myApp.main.login', ['ui.router'])
 
 .controller('LoginController', function($scope, InboxFactory) {
     $scope.getEmails = function(){
-    	console.log(InboxFactory);
     	InboxFactory.getEm()
     	  .then(function(response){
     	  	console.log(response);
