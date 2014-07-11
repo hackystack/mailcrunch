@@ -1,6 +1,6 @@
 angular.module('myApp.main.login', ['ui.router'])
 
-.config(function($stateProvider) {
+.config(function ($stateProvider) {
 
   $stateProvider
     .state('myApp.main.login', {
@@ -10,9 +10,10 @@ angular.module('myApp.main.login', ['ui.router'])
     });
 })
 
-.controller('LoginController', function($scope, GetEmails) {
+.controller('LoginController', function($scope, InboxFactory) {
     $scope.getEmails = function(){
-    	GetEmails.getEmails()
+    	console.log(InboxFactory);
+    	InboxFactory.getEm()
     	  .then(function(response){
     	  	console.log(response);
     	  });

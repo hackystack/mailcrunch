@@ -96,17 +96,16 @@
 	    }
    })
 
-  .factory('GetEmails', function($http){
-  	var getEmails = function(username, password){
+  .factory('InboxFactory', function($http){
+  	var getEm = function(username, password){
   		return $http({
   			method: 'GET',
-  			url: 'main/login',
-  			data: {username: username, password: password}
-  		})
-  		.then(function(response){
-  			return response;
+  			url: '/main/login'
   		});
-  	}
+  	};
+  	return {
+  		getEm: getEm
+  	};
   });
 }(angular));
 

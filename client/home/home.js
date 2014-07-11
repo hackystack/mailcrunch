@@ -12,11 +12,11 @@ angular.module('myApp.main.home', ['ui.router'])
 
 //this is dummy data to test the list of inbox emails	
 .controller('HomeController', function($scope, GetEmails) {
-    $scope.getEmails = function(){
-    	GetEmails.getEmails()
-    	  .then(function(response){
-    	  	console.log(response);
-    	  });
-    }
+    // $scope.getEmails = function(){
+    // 	GetEmails.getEmails()
+    // 	  .then(function(response){
+    // 	  	console.log(response);
+    // 	  });
+    // }
 })
 
