@@ -12,5 +12,5 @@ angular.module('myApp.main.signup', ['ui.router'])
 
 .controller('SignupController', function($scope) {
     
-})
+});
 

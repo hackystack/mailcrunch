@@ -12,5 +12,5 @@ angular.module('myApp.main.login', ['ui.router'])
 
 .controller('LoginController', function($scope) {
     
-})
+});
 

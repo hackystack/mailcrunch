@@ -82,7 +82,7 @@
 	return {reset: function(){
 		return timeLeft = 5;
 	}};
-  })
+  });
 
   .factory('crunchTimer', function(bucket){
 	    if(bucket === 'manage'){
@@ -94,7 +94,7 @@
 	    }else if (bucket === 'limit'){
           return timeLeft = 60;
 	    }
-	 })
+   });
 
   .factory('GetEmails', function($http){
   	var getEmails = function(username, password){
@@ -107,6 +107,6 @@
   			return response;
   		});
   	}
-  })
+  });
 }(angular));
 

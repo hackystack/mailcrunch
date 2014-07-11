@@ -15,7 +15,7 @@ angular.module('myApp.main.home', ['ui.router'])
     $scope.getEmails = function(){
     	GetEmails.getEmails()
     	  .then(function(response){
-    	  	console.log(response);
+    	  	// console.log(response);
     	  });
     }
 })
