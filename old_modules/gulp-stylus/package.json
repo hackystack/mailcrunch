@@ -1,0 +1,74 @@
+{
+  "name": "gulp-stylus",
+  "description": "Stylus plugin for Gulp",
+  "version": "1.0.4",
+  "homepage": "http://github.com/stevelacy/gulp-stylus",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/stevelacy/gulp-stylus.git"
+  },
+  "author": {
+    "name": "Steve Lacy",
+    "email": "me@slacy.me",
+    "url": "http://slacy.me"
+  },
+  "main": "./index.js",
+  "dependencies": {
+    "accord": "^0.11.0",
+    "stylus": "*",
+    "nib": "*",
+    "gulp-util": "^2.2.20",
+    "replace-ext": "0.0.1",
+    "through2": "^0.5.1"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "engines": {
+    "node": ">= 0.9.0"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "licenses": {
+    "type": "MIT",
+    "url": "https://github.com/stevelacy/gulp-stylus/raw/master/LICENSE"
+  },
+  "bugs": {
+    "url": "https://github.com/stevelacy/gulp-stylus/issues"
+  },
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "keywords": [
+    "gulp",
+    "stylus",
+    "css",
+    "preprocessor",
+    "gulpplugin",
+    "gulp-plugin"
+  ],
+  "license": "MIT",
+  "gitHead": "e24d20aa58fad473aa33ffca1c772be0c9b8aea7",
+  "_id": "gulp-stylus@1.0.4",
+  "_shasum": "3b977309fc621201803bed718f8efa15dbe7ed6f",
+  "_from": "gulp-stylus@1.0.4",
+  "_npmVersion": "1.4.14",
+  "_npmUser": {
+    "name": "stevelacy",
+    "email": "me@slacy.me"
+  },
+  "maintainers": [
+    {
+      "name": "stevelacy",
+      "email": "me@slacy.me"
+    }
+  ],
+  "dist": {
+    "shasum": "3b977309fc621201803bed718f8efa15dbe7ed6f",
+    "tarball": "http://registry.npmjs.org/gulp-stylus/-/gulp-stylus-1.0.4.tgz"
+  },
+  "_resolved": "https://registry.npmjs.org/gulp-stylus/-/gulp-stylus-1.0.4.tgz"
+}

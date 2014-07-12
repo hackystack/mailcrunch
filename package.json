@@ -5,13 +5,13 @@
     "express": "*",
     "mongoose": "*",
     "q": "*"
+    "morgan": "*",
+    "body-parser": "*",
+    "tiny-lr": "*"
   },
   "devDependencies": {
     "gulp": "*",
-    "gulp-bower": "*",
-    "morgan": "*",
-    "body-parser": "*",
-    "tiny-lr": "*",
+    "gulp-bower":  "*",
     "gulp-jshint": "*",
     "gulp-notify": "*",
     "gulp-livereload": "*",
