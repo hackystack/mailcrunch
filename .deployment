@@ -1,0 +1,2 @@
+[config]
+command = gulp Gulpfile.js
