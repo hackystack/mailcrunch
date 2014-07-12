@@ -103,8 +103,8 @@
   			url: '/main/login'
   		})
   		.then(function(response){
-
-  			console.log(JSON.parse(response.data.headers));
+  			console.log((response));
+  			
   		});
   	};
   	return {

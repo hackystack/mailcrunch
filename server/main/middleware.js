@@ -26,36 +26,42 @@ module.exports = exports = {
 
 
       var headers;
-      var message;
+      var allTheEmails = [];
       imap.once('ready', function() {
         openInbox(function(err, box) {
           if (err) throw err;
           imap.search([ 'UNSEEN', ['SINCE', 'July 09, 2014'] ], function(err, results){
             if (err) throw err;
-             var fetched = imap.fetch(results, { struct: true, bodies: '' });
+             var fetched = imap.fetch(results, { struct: true, bodies: ['HEADER','TEXT'] });
              fetched.on('message', function(msg, seqno) {
+              var bodyBuffer = '';
+              var headerBuffer = '';
                msg.on('body', function(stream, info) {
-                var buffer = '';
-                stream.on('data', function(data){
-                  buffer += data.toString('utf8');
-                })
-                stream.on('end', function(){
-                  console.log(buffer);
-                  headers = Imap.parseHeader(buffer);
-                })
+                if (info.which === 'HEADER'){
+                  stream.on('data', function(data){
+                    headerBuffer += data;
+                  });
+                }
+                if (info.which === 'TEXT'){
+                  stream.on('data', function(data){
+                    bodyBuffer += data.toString('utf8');
+                  });
+                  stream.once('end', function(){
+                    headerBuffer = Imap.parseHeader(headerBuffer);
+                  })
+                 }
                })
-               msg.on('attributes', function(attrs){
-                 message = JSON.stringify(attrs.struct);
-               });
                msg.on('end', function(){
-                res.end(JSON.stringify({headers: JSON.stringify(headers), message: message}));
+                allTheEmails.push({headers: headerBuffer, body: bodyBuffer});
                });
             });
+            fetched.once('end', function(){
+              res.end(JSON.stringify(allTheEmails));
+            })
           });
         });
       });
       
-
       imap.once('error', function(err) {
         console.log(err);
       });
