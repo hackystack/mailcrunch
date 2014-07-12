@@ -94,6 +94,22 @@
 	    }else if (bucket === 'limit'){
           return timeLeft = 60;
 	    }
-	 });
+   })
+
+  .factory('InboxFactory', function($http){
+  	var getEm = function(username, password){
+  		return $http({
+  			method: 'GET',
+  			url: '/main/login'
+  		})
+  		.then(function(response){
+  			console.log((response));
+  			
+  		});
+  	};
+  	return {
+  		getEm: getEm
+  	};
+  });
 }(angular));
 

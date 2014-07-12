@@ -11,6 +11,8 @@ angular.module('myApp.main.signup', ['ui.router'])
 })
 
 .controller('SignupController', function($scope) {
-    
-})
+    $scope.signup = function(){
+    	console.log('Good job! You signed up!')
+    }
+});
 
